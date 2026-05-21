@@ -57,7 +57,8 @@ class HomePage extends StatelessWidget {
             (builder: (context, value, child) {
               return GridView.builder(
                 itemCount: value.shopItems.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
+                childAspectRatio: 1 / 1.3),
                itemBuilder: (context, index) {
                 return GroceryItemTile(
                   itemName: value.shopItems[index] [0],
