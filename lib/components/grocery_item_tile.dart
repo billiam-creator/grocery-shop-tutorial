@@ -1,30 +1,56 @@
 import 'package:flutter/material.dart';
 
 class GroceryItemTile extends StatelessWidget {
-    final String itemName;
-    final String itemPrice;
-    final String imagePath;   
-    final color;
+  final String itemName;
+  final String itemPrice;
+  final String imagePath;
+  
+  final MaterialColor color;
 
   const GroceryItemTile({
     super.key,
-   required this.itemName,
-   required this.itemPrice,
+    required this.itemName,
+    required this.itemPrice,
     required this.imagePath,
     required this.color,
-     });
+  });
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      child: Column( children: [
-        //image
-         Image.asset(imagePath),
-        //item name
+    return Padding(
+      padding: const EdgeInsets.all(12),
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: color[100],
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            // image
+            Image.asset(
+              imagePath,
+              height: 64,
+            ),
 
-        //price + button
+            // item name
+            Text(itemName),
 
-      ]
+            // price + button
+            MaterialButton(
+              onPressed: () {},
+              color: color[800],
+              child: Text(
+                '\$' + itemPrice,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
